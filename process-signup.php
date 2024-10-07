@@ -8,19 +8,13 @@ function sendemail_verify($name, $email, $verify_token){
     $mail->setFrom("noreply@gmail.com", "No Reply");
     $mail->addAddress($email);
     $mail->Subject = "Email Verification";
-
-    // Determine the base URL based on the environment
-    if (strpos($_SERVER['HTTP_HOST'], "azurewebsites") !== false) {
-        $base_url = 'https://stoltvi.azurewebsites.net';
-    } else {
-        $base_url = 'http://localhost/login_db';
-    }
-
+    $server = $_SERVER['HTTP_HOST'];
+    $base_url = $protocol . $server;
     $email_template = "
     <h2>You have signed up to our website</h2>
     <h5>Click the link below to verify your email</h5>
     <br/><br/>
-    <a href=''$base_url/verify-email.php?token=$verify_token'>Click Me</a>";
+    <a href='http://$base_url/verify-email.php?token=$verify_token'>Click Me</a>";
 
     $mail->Body = $email_template;
 

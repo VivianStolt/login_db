@@ -18,7 +18,7 @@ if (strpos($_SERVER['HTTP_HOST'], "azurewebsites") !== false) {
     $host = $host_local;
     $username = $username_local;
     $password = $password_local;
-    $port = NULL;
+    $port = ini_get("mysqli.default_port");
 }
 
 $mysqli = new mysqli($host, $username, $password, $dbname, $port);
