@@ -25,9 +25,23 @@ if (isset($_SESSION["user_id"])) {
 <body>
     
     <h1>Home</h1>
+    <?php if(isset($_SESSION['status'])){?>
+        <div class="alert alert-success">
+            <h5><?php echo $_SESSION['status']; ?></h5>
+        </div>
+        <?php unset($_SESSION['status']); }?>
     
+        <?php if (isset($user)): ?>
+        
+        <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
+        
+        <p><a href="logout.php">Log out</a></p>
+        
+        <?php else: ?>
 
         <p><a href="login.php">Log in</a> or <a href="signup.php">sign up</a></p>
+        
+        <?php endif; ?>
 
     
 </body>
