@@ -42,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
+    <button type="button" onclick="location.href='index.php'">Back</button>
     <?php if(isset($_SESSION['status'])){?>
         <div class="alert alert-success">
             <h5><?php echo $_SESSION['status']; ?></h5>
