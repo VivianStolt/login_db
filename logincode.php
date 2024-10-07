@@ -16,6 +16,14 @@ if(isset($_POST['login_btn'])){
             if(password_verify($password, $row['password_hash'])){
                 if($row['verify_status'] == "1"){
 
+                    $_SESSION['authenticated'] = true;
+                    $_SESSION['auth_user'] = [
+                        'name' => $row['name'],
+                        'email' => $row['email']
+                    ];
+                    $_SESSION['status'] = "Login Successfull";
+                    header("Location: index.php");
+                    exit(0);
                 }else{
                     $_SESSION['status'] = "Email Not Verified. Please Verify Your Email";
                     header("Location: login.php");
