@@ -24,6 +24,7 @@ if (strpos($_SERVER['HTTP_HOST'], "localhost") !== false) {
 $mysqli = new mysqli($host, $username, $password, $dbname, $port);
 
 if ($mysqli->connect_errno) {
+    error_log('Connection error: ' . $mysqli->connect_error);
     die("Connection error: " . $mysqli->connect_error);
 }
 
