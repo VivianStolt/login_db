@@ -1,10 +1,10 @@
 <?php
 
-$host_local = "127.0.0.1";
+$host_local = "localhost";
 $host_remote = "datasql7.westeurope.cloudapp.azure.com";
 $dbname = "login_db";
-$username_local = "stoltvi";
-$password_local = "73743";
+$username_local = "root";
+$password_local = "";
 $username_remote = "stoltvi";
 $password_remote = "73743";
 $port_remote = 6020;
