@@ -9,16 +9,16 @@ $username_remote = "stoltvi";
 $password_remote = "73743";
 $port_remote = 6020;
 
-if (strpos($_SERVER['HTTP_HOST'], "azurewebsites") !== false) {
-    $host = $host_remote;
-    $username = $username_remote;
-    $password = $password_remote;
-    $port = $port_remote;
-} else {
+if (strpos($_SERVER['HTTP_HOST'], "localhost") !== false) {
     $host = $host_local;
     $username = $username_local;
     $password = $password_local;
     $port = ini_get("mysqli.default_port");
+}else{
+    $host = $host_remote;
+    $username = $username_remote;
+    $password = $password_remote;
+    $port = $port_remote;
 }
 
 $mysqli = new mysqli($host, $username, $password, $dbname, $port);
