@@ -28,9 +28,11 @@ if ($mysqli->affected_rows) {
     $mail->setFrom("noreply@gmail.com", "No Reply");
     $mail->addAddress($email);
     $mail->Subject = "Password reset";
+    $server = $_SERVER['HTTP_HOST'];
+    $base_url = $protocol . $server;
     $mail->Body = <<<END
 
-    Click <a href="http://localhost/login_db//reset-password.php?token=$token">here</a> to reset your password.
+    Click <a href="http://$base_url/reset-password.php?token=$token">here</a> to reset your password.
 
     END;
 
