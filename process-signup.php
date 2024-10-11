@@ -95,7 +95,7 @@ if(isset($_POST["submit"])){
     if($query_run){
         if (sendemail_verify($name, $email, $verify_token)) {
             unset($_SESSION['success']);
-            $_SESSION['great'] = "Rekisteröityminen onnistui. Vahvista sähköpostisi.";
+            $_SESSION['success'] = "Rekisteröityminen onnistui. Vahvista sähköpostisi.";
             $_SESSION['email_not_verified'] = true;
             $_SESSION['auth_user']['email'] = $email;
             unset($_SESSION['input_values']);
