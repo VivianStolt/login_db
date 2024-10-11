@@ -2,6 +2,8 @@
 session_start();
 include('database.php');
 
+
+
 if(isset($_POST['login_btn'])){
     if(!empty(trim($_POST['email'])) && !empty(trim($_POST['password'])))
     {
@@ -21,30 +23,39 @@ if(isset($_POST['login_btn'])){
                         'name' => $row['name'],
                         'email' => $row['email']
                     ];
-                    $_SESSION['status'] = "Login Successfull";
-                    header("Location: index.php");
+                    if(isset($_POST['remember_me'])){
+                        setcookie('email', $email, time() + (86400 * 30), "/");
+                        setcookie('password', $password, time() + (86400 * 30), "/");
+                    }else{
+                        setcookie('email', '', time() - (86400 * 30), "/");
+                        setcookie('password', '', time() - (86400 * 30), "/");
+                    }
+                    $_SESSION['success'] = "Kirjautuminen onnistui";
+                    unset($_SESSION['email_not_verified']);
+                    header("Location: questionnaire.php");
                     exit(0);
                 }else{
-                    $_SESSION['status'] = "Email Not Verified. Please Verify Your Email";
-                    header("Location: login.php");
+                    $_SESSION['error'] = "Sähköpostia ei ole vahvistettu. Ole hyvä ja vahvista sähköpostisi.";
+                    $_SESSION['email_not_verified'] = true;
+                    $_SESSION['auth_user']['email'] = $email;
+                    header("Location: index.php?page=login");
                     exit(0);
                 }
             } else {
-                $_SESSION['status'] = "Invalid Email or Password";
-                header("Location: login.php");
+                $_SESSION['error'] = "Virheellinen sähköposti tai salasana";
+                header("Location: index.php?page=login");
                 exit(0);
             }
         }else{
-            $_SESSION['status'] = "Invalid Email or Password";
-            header("Location: login.php");
+            $_SESSION['error'] = "Virheellinen sähköposti tai salasana";
+            header("Location: index.php?page=login");
             exit(0);
         }
     }
     else{
-        $_SESSION['status'] = "All fields are Mandetory";
-        header("Location: login.php");
+        $_SESSION['error'] = "Kaikki kentät ovat pakollisia";
+        header("Location: index.php?page=login");
         exit(0);
     }
 }
-
 ?>

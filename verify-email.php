@@ -18,26 +18,26 @@ if(isset($_GET['token']))
             $update_query_run = mysqli_query($mysqli, $update_query);
 
             if($update_query_run){
-                $_SESSION['status'] = "Email Verified Successfully. Please Login";
-                header("Location: login.php");
+                $_SESSION['success'] = "Sähköposti vahvistettu onnistuneesti. Ole hyvä ja kirjaudu sisään.";
+                header("Location: index.php?page=login");
                 exit(0);
             }else{
-                $_SESSION['status'] = "Email Verification Failed";
-                header("Location: login.php");
+                $_SESSION['error'] = "Sähköpostin vahvistus epäonnistui.";
+                header("Location: index.php?page=login");
                 exit(0);
             }
         }else{
-            $_SESSION['status'] = "Email Already Verified. Please Login";
-            header("Location: login.php");
+            $_SESSION['status'] = "Sähköposti on jo vahvistettu. Ole hyvä ja kirjaudu sisään.";
+            header("Location: index.php?page=login");
             exit(0);
         }
     }
     else{
-        $_SESSION['status'] = "This Token does not Exists";
-        header("Location: login.php");
+        $_SESSION['error'] = "Tätä tunnusta ei ole olemassa.";
+        header("Location: index.php?page=login");
     }
 }else{
-    $_SESSION['status'] = "Not Allowed";
-    header("Location: login.php");
+    $_SESSION['error'] = "Ei sallittu";
+    header("Location: index.php?page=login");
 }
 ?>

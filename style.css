@@ -1,0 +1,404 @@
+/* General Styles */
+body {
+    background: black;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    isolation: isolate;
+    position: relative;
+    padding: 0;
+    width: auto;
+    margin: 0;
+    background-image: url(photos/sports.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    isolation: isolate;
+    position: relative;
+    width: -webkit-fill-available;
+    height: 100vh;
+    background-image: url(photos/sports.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background: linear-gradient(180deg, rgba(1, 1, 1, 0) 0%, #010101 100%);
+    
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    margin: 0 auto;
+    width: fit-content;
+    height: 50%;
+    flex: auto;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 2;
+    justify-content: space-between;
+}
+
+/*  */
+
+.log {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    
+    width: -webkit-fill-available;
+    height: fit-content;
+
+    background: #FFFFFF;
+    border-radius: 8px;
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #010101;
+
+    
+}
+
+/* Header Styles */
+h1 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+    text-align: center;
+    margin: 0;
+    color: #010101; /* Ensure this is the correct color */
+}
+
+
+.icon {
+    width: 18px; /* Adjust the size as needed */
+    height: 18px; /* Adjust the size as needed */
+    fill: none; /* Ensure the fill is none */
+    stroke: currentColor; /* Use currentColor to inherit the color */
+}
+
+
+
+.white{
+    color: #FFFFFF;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 0px;
+    gap: 10px;
+}
+
+.visible{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    top:0px;
+}
+
+.hidden {
+    display: none;
+}
+
+.pop {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 20px;
+    gap: 20px;
+    position: absolute;
+    height: fit-content;
+
+    bottom: 0px;
+    background: #FFFFFF;
+    border-radius: 8px 8px 0px 0px;
+    width: fit-content;
+    min-width: 350px;
+    
+}
+
+
+/* Button Styles */
+button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    margin: 20px 0px 20px 0px;
+
+    width: -webkit-fill-available;
+    height: fit-content;
+
+    /* color2 */
+    background: #00A0D9;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height */
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+    outline: unset;
+    border: unset;
+    cursor: pointer;
+}
+
+
+
+button:hover {
+    background-color: #0078A6;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+    width: -webkit-fill-available;
+    height: fit-content;
+}
+
+.text{
+    background: unset;
+    color: #2A91B6;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    text-transform: unset;
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+}
+
+button.text:hover{
+    background-color: unset;
+}
+
+.fit{
+    width: fit-content;
+}
+
+input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    
+    width: -webkit-fill-available;
+    height: fit-content;
+    
+    /* Color10 */
+    background: rgba(1, 1, 1, 0.1);
+    border-radius: 8px;
+    border-color: unset;
+    border: unset;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+input:focus-visible{
+    box-shadow: inset 0px 0px 1px 2px #2A91B6;
+    border-radius: 8px;
+    outline: unset;
+}
+
+label {
+    display: flex;
+    margin: 0;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.checkbox {
+    width: fit-content
+}
+
+/* Link Styles */
+a {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    flex-direction: row;
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+    color: #2A91B6;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0078A6;
+    
+}
+
+#text {
+    width: fit-content;
+}
+
+#alert{
+    gap: 10px;
+    flex-direction: column;
+    width: fit-content;
+}
+
+
+.error{
+    color: red;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    flex-direction: row;
+}
+
+.progress-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    position: absolute;
+    width: 306px;
+    height: 13px;
+    left: 44px;
+    top: 6px;
+    background: rgba(1, 1, 1, 0.1);
+    border-radius: 50px;
+    z-index: 1;
+  }
+
+  /* Frame 19 (Filled Bar) */
+  .progress-bar {
+    height: 13px;
+    background: #00A0D9;
+    border-radius: 50px;
+    transition: width 0.3s ease-in-out;
+  }
+
+
+
+.success{
+    color: green;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    margin: 0;
+    gap: 10px;
+    align-items: center;
+    display: flex;
+    width: fit-content;
+    flex-direction: row;
+
+}
+
+.status{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: #010101;
+}
+
+p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    flex-direction: row;
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+    color: #010101;
+}
+
+@media (max-width: 1000px) {
+    .pop{
+        width: 40%;
+    }
+}
+
+@media (max-width: 800px) {
+    body {
+        background-size: cover; /* Change background-size for smaller screens */
+
+    }
+
+    .pop{
+        width: 350px;
+    }
+}

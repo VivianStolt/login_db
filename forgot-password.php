@@ -1,22 +1,29 @@
+<?php
+session_start(); // Add this line at the beginning
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Forgot Password</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div class="pop">
+    <h1>Unohtuiko salasana?</h1>
+    <?php
 
-    <h1>Forgot Password</h1>
+    if(isset($_SESSION['error'])){
+        echo "<p class='error'><svg class='icon'><use xlink:href='icons.svg#warning'></use></svg> {$_SESSION['error']}</p>";
+        unset($_SESSION['error']);
+    }
+    ?>
     
     <form method="post" action="send-password-reset.php">
-        
-            <label for="email">Email</label><br>
-            <input type="email" id="email" name="email">
-
-            <button>Send reset link</button>
-        
+        <input type="email" id="email" name="email" placeholder="Sähköposti">
+        <button>Lähetä nollauslinkki</button>
     </form>
+</div>
 
 </body>
 </html>
