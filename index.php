@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once $_SERVER['DOCUMENT_ROOT'].'/includes/sysincludes.php';
 if (isset($_SESSION["user_id"])) {
     $mysqli = require __DIR__ . "/database.php";
     $sql = "SELECT * FROM user WHERE id = {$_SESSION["user_id"]}";

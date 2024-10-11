@@ -1,5 +1,5 @@
 <?php
-session_start(); // Add this line at the beginning
+require_once $_SERVER['DOCUMENT_ROOT'].'/includes/sysincludes.php';
 
 $token = $_POST["token"];
 $token_hash = hash("sha256", $token);

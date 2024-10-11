@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once $_SERVER['DOCUMENT_ROOT'].'/includes/sysincludes.php';
 include('database.php');
 
 function sendemail_verify($name, $email, $verify_token){
@@ -103,6 +103,11 @@ if(isset($_POST["submit"])){
             exit();
         } else {
             $_SESSION['errors'][] = "Vahvistussähköpostin lähettäminen epäonnistui.";
+            // Optionally, you can delete the user from the database if email verification fails
+            $delete_query = "DELETE FROM user WHERE email = ?";
+            $stmt = $mysqli->prepare($delete_query);
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
             header("Location: index.php?page=signup");
             exit();
         }

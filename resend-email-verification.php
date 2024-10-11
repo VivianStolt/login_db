@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once $_SERVER['DOCUMENT_ROOT'].'/includes/sysincludes.php';
 include('database.php');
 include('process-signup.php'); // Ensure this path is correct
 

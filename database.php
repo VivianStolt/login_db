@@ -1,5 +1,4 @@
 <?php
-
 $host_local = "localhost";
 $host_remote = "datasql7.westeurope.cloudapp.azure.com";
 $dbname = "login_db";
